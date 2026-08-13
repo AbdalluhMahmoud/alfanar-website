@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Fanar Engineering | Building Contracting</title>
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a1128', /* Very Dark Navy */
+                        secondary: '#fbbf24', /* Premium Amber/Gold */
+                        accent: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* Hover Elevations for Services Cards */
+        .hover-elevate {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .hover-elevate:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-gray-800 antialiased">
+
+    <!-- Navbar -->
+    <header class="bg-primary text-white shadow-xl sticky top-0 z-50 border-b-2 border-secondary/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Area -->
+            <div class="flex items-center gap-4">
+                <!-- هنا اللوجو هيقرا من ملف logo.jpeg اللي هتحطه في الفولدر -->
+                <img src="logo.jpeg" alt="Al Fanar Logo" class="h-12 md:h-14 bg-white/10 backdrop-blur-sm p-1 rounded border border-white/20">
+                <h1 class="text-lg md:text-xl font-bold tracking-widest uppercase leading-tight">
+                    Al Fanar <span class="text-secondary text-xs md:text-sm block tracking-normal">Engineering</span>
+                </h1>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex gap-8 font-medium items-center text-sm tracking-wide">
+                <a href="#" class="hover:text-secondary transition duration-300">HOME</a>
+                <a href="#about" class="hover:text-secondary transition duration-300">ABOUT</a>
+                <a href="#services" class="hover:text-secondary transition duration-300">SERVICES</a>
+                <a href="#location" class="hover:text-secondary transition duration-300">LOCATION</a>
+                <a href="company-profile.pdf" download class="bg-secondary text-primary font-bold px-6 py-2.5 rounded-full shadow-lg hover:bg-yellow-400 transition flex items-center gap-2 hover:scale-105 ml-4">
+                    <i class="fa-solid fa-download"></i> Profile
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary border-t border-white/10 px-6 py-4">
+            <div class="flex flex-col gap-4 font-medium text-sm tracking-wide">
+                <a href="#" class="hover:text-secondary">HOME</a>
+                <a href="#about" class="hover:text-secondary">ABOUT</a>
+                <a href="#services" class="hover:text-secondary">SERVICES</a>
+                <a href="#location" class="hover:text-secondary">LOCATION</a>
+                <a href="company-profile.pdf" download class="bg-secondary text-primary font-bold px-4 py-2 rounded text-center mt-2">
+                    Download Profile
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Responsive Hero Section (No Box, Text Directly on Image) -->
+    <!-- يتم قراءة الخلفية من ملف bg.png الموجود في نفس الفولدر -->
+    <section class="min-h-[90vh] flex items-center justify-center px-4 relative bg-cover bg-center bg-fixed" style="background-image: url('bg.png');">
+        
+        <!-- طبقة التظليل فوق الصورة لتوضيح الكلام -->
+        <div class="absolute inset-0 bg-primary/60"></div> 
+        
+        <!-- الكلام المباشر على الصورة -->
+        <div class="container mx-auto relative z-10 text-center" data-aos="zoom-in" data-aos-duration="1000">
+            <h4 class="text-secondary font-bold tracking-[0.15em] mb-4 uppercase text-sm md:text-base drop-shadow-md">
+                Excellence in Construction
+            </h4>
+            
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 uppercase leading-tight text-white drop-shadow-xl">
+                Building <span class="text-secondary">Visions</span>,<br> Delivering Reality
+            </h2>
+            
+            <p class="text-base md:text-lg lg:text-xl mb-10 font-light text-gray-200 max-w-3xl mx-auto drop-shadow-md px-4">
+                Your trusted partner for building contracting, maintenance, and civil works in the UAE. We turn complex challenges into enduring landmarks.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                <a href="#contact" class="bg-secondary text-primary font-bold text-base md:text-lg px-8 py-3.5 rounded-full hover:bg-yellow-400 hover:-translate-y-1 transition duration-300 shadow-lg">
+                    Get Started
+                </a>
+                <a href="#services" class="bg-transparent border-2 border-white text-white font-bold text-base md:text-lg px-8 py-3.5 rounded-full hover:bg-white hover:text-primary hover:-translate-y-1 transition duration-300 shadow-lg">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div class="w-full md:w-1/2 relative" data-aos="fade-right" data-aos-duration="1000">
+                <div class="absolute inset-0 bg-secondary transform translate-x-4 translate-y-4 rounded-2xl"></div>
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" alt="About Al Fanar" class="w-full h-[400px] md:h-[500px] object-cover rounded-2xl relative z-10 shadow-xl">
+            </div>
+            
+            <div class="w-full md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-1 bg-secondary"></div>
+                    <h4 class="text-secondary font-bold uppercase tracking-widest text-sm">About Us</h4>
+                </div>
+                <h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mb-6 leading-tight">Where Expertise <br>Meets Artistry</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed text-base md:text-lg">
+                    Al Fanar Engineering is a premier contracting company dedicated to providing comprehensive construction and maintenance solutions. We combine modern engineering with meticulous craftsmanship.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                    <div class="flex items-center gap-3 bg-light p-4 rounded-lg border-l-4 border-secondary">
+                        <i class="fa-solid fa-check-circle text-secondary text-xl"></i>
+                        <span class="font-semibold text-primary">Unwavering Quality</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-light p-4 rounded-lg border-l-4 border-secondary">
+                        <i class="fa-solid fa-check-circle text-secondary text-xl"></i>
+                        <span class="font-semibold text-primary">Safety First</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-light p-4 rounded-lg border-l-4 border-secondary">
+                        <i class="fa-solid fa-check-circle text-secondary text-xl"></i>
+                        <span class="font-semibold text-primary">Timely Delivery</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-light p-4 rounded-lg border-l-4 border-secondary">
+                        <i class="fa-solid fa-check-circle text-secondary text-xl"></i>
+                        <span class="font-semibold text-primary">Innovative Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-24 bg-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 md:mb-20" data-aos="fade-up">
+                <h4 class="text-secondary font-bold uppercase tracking-widest text-sm mb-2">Our Expertise</h4>
+                <h3 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary">Comprehensive Services</h3>
+                <div class="h-1 w-24 bg-secondary mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <!-- Top Row: 3 Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl shadow-lg hover-elevate border border-gray-100 overflow-hidden relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 md:h-56 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop" alt="Building Contracting" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-xl md:text-2xl font-bold text-primary mb-3">Building Contracting</h4>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Delivering end-to-end construction projects from foundation to finishing, ensuring precision and engineering excellence.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl shadow-lg hover-elevate border border-gray-100 overflow-hidden relative group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 md:h-56 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" alt="Building Maintenance" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-xl md:text-2xl font-bold text-primary mb-3">Building Maintenance</h4>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Preserving and restoring structural integrity through proactive and reactive maintenance solutions for all property types.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl shadow-lg hover-elevate border border-gray-100 overflow-hidden relative group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 md:h-56 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Building Extensions" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-xl md:text-2xl font-bold text-primary mb-3">Building Extensions</h4>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Seamlessly expanding your living or working spaces with modern architectural designs that blend perfectly with existing structures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: 2 Services Centered -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 lg:w-2/3 mx-auto">
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl shadow-lg hover-elevate border border-gray-100 overflow-hidden relative group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 md:h-56 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop" alt="Majlis Construction" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-xl md:text-2xl font-bold text-primary mb-3">Majlis Construction</h4>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Crafting elegant, traditional, and modern Majlis areas tailored to your lifestyle, reflecting authentic Emirati heritage.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl shadow-lg hover-elevate border border-gray-100 overflow-hidden relative group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-48 md:h-56 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=800&auto=format&fit=crop" alt="Industrial Buildings" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-xl md:text-2xl font-bold text-primary mb-3">Industrial Buildings</h4>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Constructing robust warehouses, factories, and industrial facilities engineered to meet the highest industry standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Location Section -->
+    <section id="location" class="relative bg-white">
+        <div class="container mx-auto px-6 py-16 md:py-24" data-aos="fade-up">
+            <div class="text-center mb-10 md:mb-16">
+                <h3 class="text-3xl md:text-4xl font-extrabold text-primary">Find Us on the Map</h3>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-light relative h-[350px] md:h-[450px]">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115408.09798083818!2d55.35334542718911!3d25.31114512999464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f5f8df30517%3A0xb1b694b79c3d4b!2sSharjah!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer id="contact" class="bg-primary text-gray-400 pt-16 md:pt-20 pb-10 border-t-4 border-secondary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            <!-- Company Info -->
+            <div class="lg:col-span-1">
+                <img src="logo.png" alt="Al Fanar" class="h-16 mb-6 bg-white/10 p-2 rounded border border-white/20" onerror="this.style.display='none'">
+                <h4 class="text-2xl font-bold text-white mb-4">Al Fanar Engineering</h4>
+                <p class="text-sm leading-relaxed mb-6">
+                    A recognized leader delivering exceptional solutions that shape the built environment and exceed client expectations across the UAE.
+                </p>
+                <a href="company-profile.pdf" download class="inline-flex items-center gap-2 text-secondary hover:text-white transition font-medium">
+                    <i class="fa-solid fa-cloud-arrow-down"></i> Download Company Profile
+                </a>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-secondary hover:translate-x-2 inline-block transition duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-secondary hover:translate-x-2 inline-block transition duration-300">About Us</a></li>
+                    <li><a href="#services" class="hover:text-secondary hover:translate-x-2 inline-block transition duration-300">Our Services</a></li>
+                    <li><a href="#location" class="hover:text-secondary hover:translate-x-2 inline-block transition duration-300">Location Map</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="lg:col-span-1">
+                <h4 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Contact Info</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-secondary mt-1 text-lg"></i>
+                        <span>Sharjah - UAE</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-envelope text-secondary mt-1 text-lg"></i>
+                        <a href="mailto:alfanar.alhandasi@gmail.com" class="hover:text-secondary transition break-all">alfanar.alhandasi@gmail.com</a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone text-secondary mt-1 text-lg"></i>
+                        <div>
+                            <span class="block">Eng. Hossam: <a href="tel:+971561597000" class="text-white hover:text-secondary">+971 56 159 7000</a></span>
+                            <span class="block mt-1">Acc. Mohamed: <a href="tel:+971563567000" class="text-white hover:text-secondary">+971 56 356 7000</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Media Links -->
+            <div>
+                <h4 class="text-lg font-bold text-white mb-6 uppercase tracking-wider">Follow Us</h4>
+                <p class="text-sm mb-6">Stay connected with us on social media for the latest projects and updates.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent flex items-center justify-center text-white hover:bg-secondary hover:-translate-y-2 transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-globe text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:opacity-80 hover:-translate-y-2 transition duration-300 shadow-lg">
+                        <i class="fa-brands fa-facebook-f text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] flex items-center justify-center text-white hover:opacity-80 hover:-translate-y-2 transition duration-300 shadow-lg">
+                        <i class="fa-brands fa-instagram text-lg md:text-xl"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:opacity-80 hover:-translate-y-2 transition duration-300 shadow-lg">
+                        <i class="fa-brands fa-linkedin-in text-lg md:text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 mt-12 md:mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm relative z-10 text-center md:text-left">
+            <p>&copy; 2026 Al Fanar Engineering. All Rights Reserved.</p>
+            <p>Designed with <i class="fa-solid fa-heart text-secondary"></i> for Excellence</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/971561597000" target="_blank" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] hover:scale-110 transition-all z-50 animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Initialize AOS Animation & Mobile Menu Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // تفعيل الأنيميشن
+        AOS.init({
+            once: true,
+            offset: 100,
+        });
+
+        // سكربت لتشغيل قائمة الموبايل
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
